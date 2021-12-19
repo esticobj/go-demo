@@ -14,7 +14,7 @@ func init() {
 		fmt.Printf("err: %v\n", err)
 		return
 	}
-	logger = *log.New(f, "MyLog", log.Ldate|log.Ltime|log.Lshortfile)
+	logger = *log.New(f, "MyLog ", log.Ldate|log.Ltime|log.Lshortfile)
 }
 
 func test1() {
@@ -25,11 +25,16 @@ func test1() {
 	// log.Panic("panic") //执行defer
 	log.Fatal("fatal") // 不执行defer
 }
-func main() {
+
+func test2() {
 	defer logger.Print("close resource")
 	logger.Print("Hello", " ", "World")
 	logger.Println("Hello", "World") // 不需要空格分隔
 	logger.Printf("Hello, %s, %d", "World", 100)
 	// logger.Panic("panic") //执行defer
 	logger.Fatal("fatal") // 不执行defer
+}
+func main() {
+	// test1()
+	test2()
 }
