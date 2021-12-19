@@ -14,12 +14,18 @@ func main() {
 		v += 1 // 修改v不会修改数组的值，v只是每次遍历元素的副本，并且只会申请一次存储空间
 		fmt.Println("k:", k, ",v:", v, ",addr:", &v)
 	}
-	fmt.Println(arr)
+	fmt.Printf("arr: %v\n", arr)
+	fmt.Printf("arr: %T\n", arr)
+	//创建定长数组，数组长度自动确定
+	arr1 := [...]int{1, 2, 3, 4}
+	fmt.Printf("arr1: %v\n", arr1)
+	fmt.Printf("arr1: %T\n", arr1)
 	// 创建切片（不定长数组）
 	names := []string{"a", "b", "c"} //[]里不指定长度就是切片
 	fmt.Println("names len:", len(names), "cap:", cap(names))
 	names1 := append(names, "d") //names 不会变化，names1容量不够会会扩容到原来capcity的2倍
 	fmt.Println(names)
+	fmt.Printf("names: %T\n", names)
 	fmt.Println(names1)
 	fmt.Println("names len:", len(names), "cap:", cap(names))
 	fmt.Println("names1 len:", len(names1), "cap:", cap(names1))
